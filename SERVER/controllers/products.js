@@ -26,10 +26,9 @@ export const deleteProduct = (req, res) => {
 }
 
 export const updateProduct = (req, res) => {
-    const product = products.filter((product) => product.id === req.params.id);
-    
+    const product = products.find((product) => product.id === req.params.id);
+
     product.dscproduct = req.body.dscproduct;
     product.price = req.body.price;
-    
-    res.send("Produto alterado com sucesso.");
+    res.send("Produto alterado com sucesso!");
 }
