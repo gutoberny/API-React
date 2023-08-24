@@ -13,6 +13,14 @@
   text-align: left;
 }
 
+.dscproduct {
+  text-align: left;
+}
+
+.price {
+  text-align: right;
+}
+
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
@@ -44,14 +52,11 @@
 }
 
 .btn-edit {
-  background-color: #54a135;
+  color: #000;
+  border: 1px solid #000;
 }
 
 .btn-delete {
-  background-color: #fc3729;
-}
-
-.btn-view {
-  background-color: #a7eaec;
-  color: black;
+  color: #fc3729;
+  border: 1px solid #fc3729;
 }

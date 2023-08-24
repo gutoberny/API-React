@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -18,7 +20,17 @@ const Home = () => {
     }
   };
 
-  console.log("data=>", data);
+  const onDeleteProduct = async (id) => {
+    if (window.confirm("Você tem certeza que deseja deletar este produto?")) {
+      const response = await axios.delete(
+        `http://localhost:5000/product/${id}`
+      );
+      if (response.status === 200) {
+        toast.success(response.data);
+        getProducts();
+      }
+    }
+  };
   return (
     <div style={{ marginTop: "150px" }}>
       <table className="styled-table">
@@ -35,16 +47,26 @@ const Home = () => {
             return (
               <tr key={index}>
                 <th scope="row">{index + 1}</th>
-                <td>{item.dscproduct}</td>
-                <td>{item.price}</td>
+                <td className="dscproduct">{item.dscproduct}</td>
+                <td className="price">
+                  {new Intl.NumberFormat("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                    minimumFractionDigits: 2,
+                  }).format(Number.parseFloat(item.price))}
+                </td>
                 <td>
                   <Link to={`/update/${item.id}`}>
-                    <button className="btn btn-edit">Edit</button>
+                    <button className="btn btn-edit">
+                      <AiFillEdit />
+                    </button>
                   </Link>
-                  <button className="btn btn-delete">Delete</button>
-                  <Link to={`/view/${item.id}`}>
-                    <button className="btn btn-view">View</button>
-                  </Link>
+                  <button
+                    className="btn btn-delete"
+                    onClick={() => onDeleteProduct(item.id)}
+                  >
+                    <AiFillDelete />
+                  </button>
                 </td>
               </tr>
             );
