@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
   return (
     <div className="header">
-      <p className="logo"> UserManagement System</p>
+      <p className="logo"> Listagem de Produtos</p>
       <div className="header-right">
         <Link to="/">
           <p
@@ -31,7 +31,7 @@ const Header = () => {
             className={`${activeTab === "AddProduct" ? "active" : ""}`}
             onClick={() => setActiveTab("AddProduct")}
           >
-            Add Product
+            Adicionar Produto
           </p>
         </Link>
         <Link to="/">
@@ -39,7 +39,7 @@ const Header = () => {
             className={`${activeTab === "About" ? "active" : ""}`}
             onClick={() => setActiveTab("About")}
           >
-            About
+            Sobre
           </p>
         </Link>
       </div>

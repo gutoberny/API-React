@@ -24,10 +24,10 @@ const Home = () => {
       <table className="styled-table">
         <thead>
           <tr>
-            <th style={{ textAlign: "center" }}>No. Product</th>
-            <th style={{ textAlign: "center" }}>Name Product</th>
-            <th style={{ textAlign: "center" }}>Price</th>
-            <th style={{ textAlign: "center" }}>Action</th>
+            <th style={{ textAlign: "center" }}>No. Produto</th>
+            <th style={{ textAlign: "center" }}>Descrição Produto</th>
+            <th style={{ textAlign: "center" }}>Preço</th>
+            <th style={{ textAlign: "center" }}></th>
           </tr>
         </thead>
         <tbody>
