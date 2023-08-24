@@ -15,18 +15,19 @@
 }
 
 .header p.logo {
+  align-items: center;
   font-size: 25px;
   font-weight: bold;
-  color: aquamarine;
+  color: #1d856b;
 }
 
 .header p:hover {
   background-color: #ddd;
-  color: #5d6770;
+  color: #15493c;
 }
 
 .header p.active {
-  background-color: #917c46;
+  background-color: #1d856b;
   color: white;
 }
 
