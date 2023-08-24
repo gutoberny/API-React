@@ -1,3 +1,4 @@
+#!/usr/bin / env node
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -15,5 +16,6 @@ app.use("/", productRoutes);
 app.get("/", (req, res) => res.send("Uuup!"));
 app.all("*", (req, res) => res.send("Página não encontrada"));
 
-
-app.listen(port, () => console.log(`Server listening on port: http://localhost:${port}`));
+app.listen(port, () =>
+  console.log(`Server listening on port: http://localhost:${port}`)
+);
