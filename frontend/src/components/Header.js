@@ -11,7 +11,7 @@ const Header = () => {
     } else if (location.pathname === "/add") {
       setActiveTab("AddProduct");
     }
-  }, []);
+  }, [location.pathname]);
   return (
     <div className="header">
       <p className="logo"> Listagem de Produtos</p>
