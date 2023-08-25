@@ -19,7 +19,7 @@ export function fetchProducts() {
 
     try {
       const response = await fetch(
-        "https://back-api-react.onrender.com//products"
+        "https://back-api-react.onrender.com/products"
       );
       const data = await response.json();
       dispatch(loadProductsSuccess(data));
@@ -31,7 +31,7 @@ export function addNewProductRequest(productTable, newProduct) {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        "https://back-api-react.onrender.com//product",
+        "https://back-api-react.onrender.com/product",
         {
           method: "POST",
           headers: {
