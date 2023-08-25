@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import {
+  fetchProducts,
   removeProductRequest,
-  getProductsRequest,
 } from "../store/modules/products/actions";
 
 import "./modal.css";
@@ -13,14 +13,16 @@ const DeleteModal = ({ products, productId }) => {
   const handleCloseModal = () => {
     document.getElementsByClassName("modal")[0].style.display = "none";
   };
+  const handleRemoveProduct = async () => {
+    const product = products.find((item) => item.id === productId);
+    if (!product) {
+      return;
+    }
 
-  const handleRemoveProduct = () => {
-    dispatch(removeProductRequest(products, productId));
-    setTimeout(
-      () =>
-        (document.getElementsByClassName("modal")[0].style.display = "none"),
-      1000
-    );
+    await dispatch(removeProductRequest(products, productId));
+    dispatch(fetchProducts());
+
+    handleCloseModal();
   };
 
   return (

@@ -2,12 +2,12 @@ import { v4 as uuid } from "uuid";
 
 let products = [
   {
-    id: 1,
+    id: uuid(),
     dscproduct: "camisa",
     price: 23.42,
   },
   {
-    id: 2,
+    id: uuid(),
     dscproduct: "tenis",
     price: 23.0,
   },

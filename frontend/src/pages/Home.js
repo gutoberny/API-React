@@ -1,48 +1,47 @@
-import React, { useState, useLayoutEffect, useCallback } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  fetchProducts,
   addNewProductRequest,
   editProductRequest,
-  getProductsRequest,
+  // loadProductsRequest,
 } from "../store/modules/products/actions";
 import DeleteModal from "../components/DeleteModal";
 import "./Home.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 
 const ProductsContainer = () => {
-  const [products, setProducts] = useState([]);
   const [addProduct, setAddProduct] = useState(false);
   const [edit, setEdit] = useState(false);
   const [productId, setProductId] = useState("");
   const [product, setProduct] = useState({
-    id: "",
     dscproduct: "",
     price: "",
   });
 
   const dispatch = useDispatch();
 
-  React.useEffect(() => {
-    axios.get("http://localhost:5000/products").then((response) => {
-      setProducts(response.data);
-    });
-  }, []);
+  const products = useSelector((state) => state.productsReducer.products);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   const handleOpenModal = (id) => {
     setProductId(id);
     document.getElementsByClassName("modal")[0].style.display = "flex";
   };
+  const handleCreateNewProduct = async () => {
+    await dispatch(addNewProductRequest(products, product));
+    setAddProduct(false);
+    dispatch(fetchProducts());
+  };
 
-  const handleCreateNewProduct = useCallback(() => {
-    dispatch(addNewProductRequest(products, product));
-    setTimeout(() => setAddProduct(false), 1000);
-  }, [dispatch, products, product]);
-
-  const handleEditProduct = useCallback(() => {
-    dispatch(editProductRequest(products, product));
-    setTimeout(() => setEdit(false), 1000);
-  }, [dispatch, product, products]);
+  const handleEditProduct = async () => {
+    await dispatch(editProductRequest(products, product));
+    setEdit(false);
+    dispatch(fetchProducts());
+  };
 
   const handleEdit = (product) => {
     setEdit(true);
@@ -52,7 +51,6 @@ const ProductsContainer = () => {
       price: product.price,
     });
   };
-
   return (
     <>
       {addProduct ? (

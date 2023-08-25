@@ -1,44 +1,28 @@
 import ActionTypes from "./types";
 
-const products = (state = [], action) => {
+const initialState = {
+  products: [],
+};
+
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.addNewProductRequest: {
-      const { productTable, newProduct } = action.payload;
-      return productTable.push({
-        id: productTable.length + 1,
-        dscproduct: newProduct.dscproduct,
-        price: newProduct.price,
-      });
-    }
-    case ActionTypes.removeProductRequest: {
-      const { productTable, productId } = action.payload;
-      const findProduct = productTable.findIndex(
-        (item) => item.id === productId
-      );
-
-      if (findProduct >= 0) {
-        productTable.splice(findProduct, 1);
-        return productTable;
-      }
-      break;
-    }
-    case ActionTypes.editProductRequest: {
-      const { productTable, productInfo } = action.payload;
-      const findProduct = productTable.findIndex(
-        (item) => item.id === productInfo.id
-      );
-
-      if (findProduct >= 0) {
-        productTable[findProduct]["dscproduct"] = productInfo.dscproduct;
-        productTable[findProduct]["price"] = productInfo.price;
-        return productTable;
-      }
-      break;
-    }
+    case ActionTypes.loadProductsRequest:
+      return state;
+    case ActionTypes.loadProductsSuccess:
+      return {
+        ...state,
+        products: action.payload,
+      };
+    case ActionTypes.addNewProductRequest:
+      return state;
+    case ActionTypes.removeProductRequest:
+      return state;
+    case ActionTypes.editProductRequest:
+      return state;
     default: {
       return state;
     }
   }
 };
 
-export default products;
+export default productsReducer;
