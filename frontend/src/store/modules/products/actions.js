@@ -85,7 +85,7 @@ export function editProductRequest(productTable, product) {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        `https://back-api-react.onrender.com/${product.id}`,
+        `https://back-api-react.onrender.com/product/${product.id}`,
         {
           method: "PUT",
           headers: {
