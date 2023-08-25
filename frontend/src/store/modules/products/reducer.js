@@ -12,6 +12,7 @@ const user = (state = [], action) => {
     }
     case ActionTypes.removeProductRequest: {
       const { productTable, productId } = action.payload;
+      console.log(productId);
       const findProduct = productTable.findIndex(
         (item) => item.id === productId
       );

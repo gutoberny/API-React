@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useLayoutEffect, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import {
   addNewProductRequest,
@@ -14,18 +14,19 @@ const ProductsContainer = () => {
   const [edit, setEdit] = useState(false);
   const [productId, setProductId] = useState("");
   const [product, setProduct] = useState({
+    id: "",
     dscproduct: "",
     price: "",
   });
 
   const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
+  useLayoutEffect(() => {}, []);
 
   const handleOpenModal = (id) => {
-    console.log(id);
     setProductId(id);
     document.getElementsByClassName("modal")[0].style.display = "flex";
+    console.log(product);
   };
 
   const handleCreateNewProduct = useCallback(() => {

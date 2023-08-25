@@ -1,7 +1,6 @@
 import ActionTypes from "./types";
 
 export function addNewProductRequest(productTable, newProduct) {
-  console.log(productTable);
   return {
     type: ActionTypes.addNewProductRequest,
     payload: {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { removeProductRequest } from "../store/modules/products/actions";
 
@@ -6,6 +6,7 @@ import "./modal.css";
 
 const DeleteModal = ({ products, productId }) => {
   const dispatch = useDispatch();
+  const [setProducts] = useState([]);
 
   const handleCloseModal = () => {
     document.getElementsByClassName("modal")[0].style.display = "none";
@@ -18,6 +19,7 @@ const DeleteModal = ({ products, productId }) => {
         (document.getElementsByClassName("modal")[0].style.display = "none"),
       1000
     );
+    return products;
   };
   return (
     <div className="modal">
