@@ -1,6 +1,6 @@
 import ActionTypes from "./types";
 
-const user = (state = [], action) => {
+const products = (state = [], action) => {
   switch (action.type) {
     case ActionTypes.addNewProductRequest: {
       const { productTable, newProduct } = action.payload;
@@ -12,7 +12,6 @@ const user = (state = [], action) => {
     }
     case ActionTypes.removeProductRequest: {
       const { productTable, productId } = action.payload;
-      console.log(productId);
       const findProduct = productTable.findIndex(
         (item) => item.id === productId
       );
@@ -42,4 +41,4 @@ const user = (state = [], action) => {
   }
 };
 
-export default user;
+export default products;

@@ -1,34 +1,45 @@
 import { v4 as uuid } from "uuid";
 
-let products = [];
+let products = [
+  {
+    id: 1,
+    dscproduct: "camisa",
+    price: 23.42,
+  },
+  {
+    id: 2,
+    dscproduct: "tenis",
+    price: 23.0,
+  },
+];
 
 export const getProducts = (req, res) => {
-    res.send(products);
+  return res.json(products);
 };
 
 export const createProduct = (req, res) => {
-    const product = req.body;
+  const product = req.body;
 
-    products.push({ ...product, id: uuid() });
-    res.send("Produto adicionado com sucesso!");
-}
+  products.push({ ...product, id: uuid() });
+  res.send("Produto adicionado com sucesso!");
+};
 
 export const getProduct = (req, res) => {
-    const product = products.filter((product) => product.id === req.params.id);
+  const product = products.filter((product) => product.id === req.params.id);
 
-    res.send(product);
-}
+  res.send(product);
+};
 
 export const deleteProduct = (req, res) => {
-    products = products.filter((product) => product.id !== req.params.id);
+  products = products.filter((product) => product.id !== req.params.id);
 
-    res.send("Produto deletado com sucesso");
-}
+  res.send("Produto deletado com sucesso");
+};
 
 export const updateProduct = (req, res) => {
-    const product = products.find((product) => product.id === req.params.id);
+  const product = products.find((product) => product.id === req.params.id);
 
-    product.dscproduct = req.body.dscproduct;
-    product.price = req.body.price;
-    res.send("Produto alterado com sucesso!");
-}
+  product.dscproduct = req.body.dscproduct;
+  product.price = req.body.price;
+  res.send("Produto alterado com sucesso!");
+};

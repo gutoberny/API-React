@@ -1,8 +1,10 @@
-import { useState, useLayoutEffect, useCallback } from "react";
+import React, { useState, useLayoutEffect, useCallback } from "react";
+import axios from "axios";
 import { useDispatch } from "react-redux";
 import {
   addNewProductRequest,
   editProductRequest,
+  getProductsRequest,
 } from "../store/modules/products/actions";
 import DeleteModal from "../components/DeleteModal";
 import "./Home.css";
@@ -21,12 +23,15 @@ const ProductsContainer = () => {
 
   const dispatch = useDispatch();
 
-  useLayoutEffect(() => {}, []);
+  React.useEffect(() => {
+    axios.get("http://localhost:5000/products").then((response) => {
+      setProducts(response.data);
+    });
+  }, []);
 
   const handleOpenModal = (id) => {
     setProductId(id);
     document.getElementsByClassName("modal")[0].style.display = "flex";
-    console.log(product);
   };
 
   const handleCreateNewProduct = useCallback(() => {
