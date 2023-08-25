@@ -55,13 +55,15 @@ table tbody tr:last-of-type {
 }
 
 .btn-edit {
-  color: #000;
-  border: 1px solid #000;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: #bbbbbb;
 }
 
 .btn-delete {
-  color: #ffffff;
-  border: 1px solid #fc3729;
+  color: #fff;
+  border: 1px solid #fff;
+  background-color: #fc3729;
 }
 
 h2 {

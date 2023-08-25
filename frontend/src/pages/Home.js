@@ -156,7 +156,7 @@ const ProductsContainer = () => {
                 className="add-new-button"
                 onClick={() => setAddProduct(true)}
               >
-                Add new
+                Adicionar Produto
               </button>
             </div>
           </header>
@@ -166,7 +166,7 @@ const ProductsContainer = () => {
             ) : (
               <table>
                 <thead>
-                  <tr>
+                  <tr className="header-table">
                     <th>Id</th>
                     <th>Nome do Produto</th>
                     <th>Preço</th>
@@ -190,7 +190,6 @@ const ProductsContainer = () => {
                           <button
                             className="btn btn-edit"
                             type="submit"
-                            style={{ backgroundColor: "orange" }}
                             onClick={() => handleEdit(item)}
                           >
                             <AiFillEdit />
@@ -198,7 +197,6 @@ const ProductsContainer = () => {
                           <button
                             className="btn btn-delete"
                             type="submit"
-                            style={{ backgroundColor: "red" }}
                             onClick={() => handleOpenModal(item.id)}
                           >
                             <AiFillDelete />
