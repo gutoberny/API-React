@@ -18,7 +18,9 @@ export function fetchProducts() {
     dispatch(loadProductsRequest());
 
     try {
-      const response = await fetch("http://localhost:5000/products");
+      const response = await fetch(
+        "https://back-api-react.onrender.com//products"
+      );
       const data = await response.json();
       dispatch(loadProductsSuccess(data));
     } catch (error) {}
@@ -28,13 +30,16 @@ export function fetchProducts() {
 export function addNewProductRequest(productTable, newProduct) {
   return async (dispatch) => {
     try {
-      const response = await fetch("http://localhost:5000/product", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
+      const response = await fetch(
+        "https://back-api-react.onrender.com//product",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newProduct),
+        }
+      );
 
       if (!response.ok) {
         return;
@@ -55,7 +60,7 @@ export function removeProductRequest(productTable, productId) {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/product/${productId}`,
+        `https://back-api-react.onrender.com/product/${productId}`,
         {
           method: "DELETE",
         }
@@ -80,7 +85,7 @@ export function editProductRequest(productTable, product) {
   return async (dispatch) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/product/${product.id}`,
+        `https://back-api-react.onrender.com/${product.id}`,
         {
           method: "PUT",
           headers: {

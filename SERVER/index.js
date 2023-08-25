@@ -17,5 +17,5 @@ app.get("/", (req, res) => res.send("Uuup!"));
 app.all("*", (req, res) => res.send("Página não encontrada"));
 
 app.listen(port, () =>
-  console.log(`Server listening on port: http://localhost:${port}`)
+  console.log(`Server listening on port: https://back-api-react.onrender.com/`)
 );
