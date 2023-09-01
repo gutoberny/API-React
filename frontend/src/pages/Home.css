@@ -79,6 +79,7 @@ h2 {
   justify-content: space-between;
   font-size: 16px;
   margin: 10px auto auto;
+  width: 80%;
 }
 .add-new-button {
   border-radius: 8px;
