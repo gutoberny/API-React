@@ -13,5 +13,5 @@ Início rápido:
 
 O front do projeto esta disponivel no netlifly, você pode conferir aqui: https://gbernyproducts.netlify.app/
 
-o Backend eu subi no site render: https://back-api-react.onrender.com/
+O Backend eu subi no site render: https://back-api-react.onrender.com/
 
