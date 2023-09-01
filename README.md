@@ -3,7 +3,7 @@
 Um projeto React com Redux, consumindo backend por API
 
 ------------------------------------------------------
-Este projeto foi criado com intuito de passar em um teste tecnico para uma vaga FullStack em uma empresa, é um exemplo de como usar React com Redux para consumir dados de um backend por API. O projeto consiste em uma simples lista de Produtos, onde o usuário pode adicionar, editar e excluir produtos.
+Este projeto foi criado com intuito de passar em um teste tecnico para uma vaga FullStack em uma empresa, é um exemplo de como usar React com Redux para consumir dados de um backend, feito em NODE.JS, por API. O projeto consiste em uma simples lista de Produtos, onde o usuário pode adicionar, editar e excluir produtos.
 
 Início rápido:
 
