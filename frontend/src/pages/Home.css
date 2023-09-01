@@ -78,6 +78,7 @@ h2 {
   flex-wrap: wrap;
   justify-content: space-between;
   font-size: 16px;
+  margin: 10px auto auto;
 }
 .add-new-button {
   border-radius: 8px;
