@@ -3,13 +3,13 @@ import { v4 as uuid } from "uuid";
 let products = [
   {
     id: uuid(),
-    dscproduct: "camisa",
-    price: 23.42,
+    dscproduct: "Camisa Polo Tam M",
+    price: 249.49,
   },
   {
     id: uuid(),
-    dscproduct: "tenis",
-    price: 23.0,
+    dscproduct: "Tenis esportivo Tam 42",
+    price: 499.90,
   },
 ];
 
